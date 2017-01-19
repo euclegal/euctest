@@ -1,0 +1,35 @@
+<%= simple_form_for(classroom) do |f| %>
+  <% if classroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(classroom.errors.count, "error") %> prohibited this classroom from being saved:</h2>
+
+      <ul>
+      <% classroom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+ 
+<!--    <input class="form-control" type="text" value="<%= @school.id%>" disabled><br> -->
+
+    
+     <%= f.number_field :school_id, label: false, value: @school.id, class: "form-control", disabled: true %> <br>
+ 
+  </div>
+
+ <div class="field">
+     <%= f.input :name, label: false, placeholder: "Classroom name" %>
+  </div>
+
+<div class="field">
+    <%= f.input :floor, label: false, placeholder: "Floor" %>
+  </div>
+
+  <!--div class="actions" >
+    <%= f.submit %>
+  </div-->
+  <%= f.submit "Ajouter la Classe", class: "btn btn-primary float-md-right" %>
+<% end %>

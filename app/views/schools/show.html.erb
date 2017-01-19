@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-8 col-sm-6">   
+    <p>
+      <h1 class="text-md-center text-lg-left text-sm-right">
+        <%= @school.name %>
+      </h1>
+      <hr>
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+         <strong>Address:</strong>
+       </div>
+        <div class="col-sm-6">
+           <%= @school.address %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+         <strong>Zipcode:</strong>
+       </div>
+       <div class="col-sm-6">
+          <%= @school.zipcode %>
+        </div>
+     </div>
+      <div class="row">
+        <div class="col-sm-6">
+         <strong>City:</strong>
+        </div>
+       <div class="col-sm-6">
+        <%= @school.city %>
+       </div>
+     </div>
+     <div class="row">
+      <div class="col-sm-6">
+       <strong>Country:</strong>
+      </div>
+      <div class="col-sm-6">
+       <%= @school.country %>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-sm-6">
+       <strong>Phone:</strong>
+      </div>
+      <div class="col-sm-6">
+       <%= @school.phone %>
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4 col-sm-6">
+    <H3> Ajouter une classe pour cette école</H3>
+    <%= render 'classrooms/form', classroom: @classroom %>
+  </div>
+</div>
+
+<hr>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
+

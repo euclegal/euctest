@@ -13,5 +13,39 @@
   <%= @classroom.floor %>
 </p>
 
+<hr>
+
+
+<h4>Etudiants de <%= @classroom.name %></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Firstname</th>
+      <th>Birthdate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  	<% @classroom.students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.firstname %> </td>
+        <td><%= student.birthdate %></td>
+
+
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
 <%= link_to 'Back', classrooms_path %>

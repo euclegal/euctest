@@ -1,19 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
-
-<p>
-  <strong>Firstname:</strong>
-  <%= @student.firstname %>
-</p>
+<h3>
+  
+  <%= @student.firstname %> <%= @student.name %>
+</h3>
 
 <p>
   <strong>Birthdate:</strong>
   <%= @student.birthdate %>
 </p>
+
+<hr>
+
+
+<h4>Classes de <%= @student.firstname %></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Firstname</th>
+      <th>Birthdate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @student.classrooms.each do |classroom| %>
+      <tr>
+        <td><%= classroom.name %></td>
+        <td><%= classroom.floor %> </td>
+        <td><%= link_to 'Show', classroom %></td>
+        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
+        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+</tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
